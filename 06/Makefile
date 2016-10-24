@@ -4,14 +4,11 @@ LD=gcc
 LDFLAGS=$(OPT) -ggdb -g3 -fPIC
 OPT=-O2
 
-all: debug thread
+all: debug thread tracer
 
-debug: debug.o
-
-thread: thread.o
-	$(CC) $(LDFLAGS) -o $@ $< -lpthread
+thread: LDFLAGS+=-pthread
 
 clean:
-	rm -f *.o debug thread
+	rm -f *.o debug thread tracer
 
 .PHONY: all
