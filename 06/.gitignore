@@ -1,4 +1,5 @@
 debug
+memcheck
 prof
 prof_pg
 thread

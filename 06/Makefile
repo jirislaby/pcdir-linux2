@@ -3,9 +3,12 @@ CFLAGS=$(OPT) -Wall -ggdb -g3 -fPIC
 LD=gcc
 LDFLAGS=$(OPT) -ggdb -g3 -fPIC
 OPT=-O2
-DEST=debug prof prof_pg thread tracer
+DEST=debug memcheck prof prof_pg thread tracer
 
 all: $(DEST)
+
+#memcheck: CFLAGS+=-fsanitize=address
+#memcheck: LDLIBS+=-lefence
 
 prof_pg: CFLAGS+=-pg
 prof_pg: LDFLAGS+=-pg
