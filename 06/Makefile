@@ -1,8 +1,4 @@
-CC=gcc
-CFLAGS=$(OPT) -Wall -ggdb -g3 -fPIC
-LD=gcc
-LDFLAGS=$(OPT) -ggdb -g3 -fPIC
-OPT=-O2
+include ../Makefile.common
 DEST=debug memcheck prof prof_pg thread tracer
 
 all: $(DEST)
@@ -20,5 +16,3 @@ thread: LDFLAGS+=-pthread
 
 clean:
 	rm -f *.o $(DEST)
-
-.PHONY: all
